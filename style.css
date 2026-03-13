@@ -1,0 +1,203 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #eef2f3;
+}
+
+.app-container {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    width: 360px; /* 固定幅 */
+    height: 520px; /* 固定高でサイズを共通化 */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.tab-btn {
+    border: none;
+    background: none;
+    padding: 10px;
+    font-size: 0.9rem;
+    color: #999;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tab-btn.active {
+    color: #333;
+    font-weight: bold;
+    border-bottom: 3px solid #333;
+}
+
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.content {
+    display: none;
+}
+
+.content.active {
+    display: block;
+}
+
+h2 {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 0;
+}
+
+.display {
+    font-size: 2.8rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    margin: 20px 0;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+/* タイマーのレジ風テンキー */
+.numpad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.numpad button {
+    height: 45px;
+    border: 1px solid #eee;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.numpad button:hover { background: #f0f0f0; }
+.numpad button.clear { color: #ff4757; }
+
+/* 下部コントロールボタン */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.controls button {
+    flex: 1;
+    padding: 10px 0;
+    border: none;
+    border-radius: 8px;
+    background: #ddd;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.controls button.primary {
+    background: #333;
+    color: white;
+}
+
+/* 追加分 */
+.world-clock-container {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px dashed #ddd;
+}
+
+.world-clock-container label {
+    display: block;
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+#city-select {
+    width: 80%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.world-display {
+    font-size: 1.8rem;
+    font-family: 'Courier New', Courier, monospace;
+    color: #555;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* 追加・修正分 */
+.lap-container {
+    margin-top: 15px;
+    height: 120px; /* リストの高さを固定してスクロール */
+    overflow-y: auto;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background: #fafafa;
+}
+
+#lap-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#lap-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 15px;
+    border-bottom: 1px solid #eee;
+    font-family: monospace;
+    font-size: 0.9rem;
+}
+
+.delete-lap-btn {
+    background: #ff4757;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 2px 8px;
+    cursor: pointer;
+    font-size: 0.7rem;
+}
+
+.clear-btn {
+    margin-top: 10px;
+    background: ff0000;
+    border: 1px solid #ff0000;
+    color: #ff0000;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    width: 100%;
+}
+
+.clear-btn:hover {
+    background: #ff0000;
+    color: #ffffff;
+}
+
