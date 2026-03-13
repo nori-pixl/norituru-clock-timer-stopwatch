@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Clock App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <dialog id="my-dialog">
+  <p>削除しますか？</p>
+  <!-- 閉じるボタン -->
+  <button id="close-dialog-btn">閉じる</button>
+    <button id="sakuzyo-dialog-btn">はい</button>
+</dialog>
+  
+    <div class="app-container">
+        <!-- ナビゲーション -->
+        <nav class="tabs">
+            <button class="tab-btn active" onclick="showSection('clock')">時計</button>
+            <button class="tab-btn" onclick="showSection('timer')">タイマー</button>
+            <button class="tab-btn" onclick="showSection('stopwatch')">ストップウォッチ</button>
+        </nav>
+
+        <div class="main-content">
+            <!-- 時計 -->
+            <!-- 時計セクション（書き換え分） -->
+<section id="clock" class="content active">
+    <h2>現在の時刻</h2>
+    <div id="main-clock-display" class="display">00:00:00</div>
+    
+    <!-- 世界時計エリア -->
+    <div class="world-clock-container">
+        <label for="city-select">世界時計:</label>
+             <select id="city-select" onchange="updateWorldClock()">
+              <option value="Asia/Tokyo">東京 (日本)</option>
+              <option value="America/New_York">ニューヨーク (米国)</option>
+              <option value="Europe/London">ロンドン (英国)</option>
+              <option value="Europe/Paris">パリ (フランス)</option>
+              <option value="Asia/Shanghai">上海 (中国)</option>
+              <option value="Australia/Sydney">シドニー (豪州)</option>
+               </select>
+              <div id="world-time-display" class="world-display">00:00:00</div>
+              </div>
+            </section>
+
+
+            <!-- タイマー -->
+            <section id="timer" class="content">
+                <h2>タイマー設定</h2>
+                <div id="timer-display" class="display timer-clickable">00:00:00</div>
+                <div class="numpad">
+                    <button onclick="appendNumber(1)">1</button><button onclick="appendNumber(2)">2</button><button onclick="appendNumber(3)">3</button>
+                    <button onclick="appendNumber(4)">4</button><button onclick="appendNumber(5)">5</button><button onclick="appendNumber(6)">6</button>
+                    <button onclick="appendNumber(7)">7</button><button onclick="appendNumber(8)">8</button><button onclick="appendNumber(9)">9</button>
+                    <button class="clear" onclick="clearTimer()">C</button><button onclick="appendNumber(0)">0</button><button onclick="deleteLast()">⌫</button>
+                </div>
+                <div class="controls">
+                    <button class="primary" onclick="startTimer()">スタート</button>
+                    <button onclick="stopTimer()">一時停止</button>
+                    <button onclick="resetTimer()">リセット</button>
+                </div>
+            </section>
+
+            <!-- ストップウォッチ -->
+            <!-- ストップウォッチセクション（書き換え分） -->
+<section id="stopwatch" class="content">
+    <h2>計測</h2>
+    <div id="stopwatch-display" class="display">00:00:00.0</div>
+    <div class="controls">
+        <button class="primary" onclick="startStopwatch()">スタート</button>
+        <button onclick="stopStopwatch()">一時停止</button>
+        <button onclick="addLap()">ラップ</button>
+        <button onclick="resetStopwatch()">リセット</button>
+    </div>
+
+    <!-- ラップリスト表示エリア -->
+    <div class="lap-container">
+        <ul id="lap-list"></ul>
+    </div>
+    <button id="clear-all-laps" class="clear-btn" onclick="clearAllLaps()">すべてのラップを削除</button>
+</section>
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
